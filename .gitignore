@@ -1,0 +1,11 @@
+.DS_Store
+.settings
+book/.*
+book/target
+checkin/.*
+checkin/target
+fares/.*
+fares/target
+search/.*
+search/target
+.project

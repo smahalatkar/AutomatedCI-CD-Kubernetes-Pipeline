@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fares-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fares-service
+  ports:
+  -  port: 8080
+     targetPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fares-service-deployment
+  labels:
+    app: fares-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fares-service
+  template:
+    metadata:
+      labels:
+        app: fares-service
+    spec:
+      containers:
+      - name: fares-service
+        image: satyendrasingh/fares:0.$BUILD_NUMBER
+        ports:
+        - containerPort: 8080

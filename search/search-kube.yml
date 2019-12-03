@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: search-service
+spec:
+  type: ClusterIP
+  selector:
+    app: search-service
+  ports:
+  -  port: 8090
+     targetPort: 8090
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-service-deployment
+  labels:
+    app: search-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: search-service
+  template:
+    metadata:
+      labels:
+        app: search-service
+    spec:
+      containers:
+      - name: search-service
+        image: satyendrasingh/search:0.$BUILD_NUMBER
+        ports:
+        - containerPort: 8090

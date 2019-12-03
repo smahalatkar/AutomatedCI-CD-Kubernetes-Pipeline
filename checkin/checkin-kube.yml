@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: checkin-service
+spec:
+  type: ClusterIP
+  selector:
+    app: checkin-service
+  ports:
+  -  port: 8070
+     targetPort: 8070
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkin-service-deployment
+  labels:
+    app: checkin-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: checkin-service
+  template:
+    metadata:
+      labels:
+        app: checkin-service
+    spec:
+      containers:
+      - name: checkin-service
+        image: satyendrasingh/checkin:0.$BUILD_NUMBER
+        ports:
+        - containerPort: 8070
