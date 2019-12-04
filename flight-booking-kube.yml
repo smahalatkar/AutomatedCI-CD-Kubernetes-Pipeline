@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: search-service
-        image: satyendrasingh/search:0.$BUILD_NUMBER
+        image: 96637/search:0.1
         ports:
         - containerPort: 8090
 
