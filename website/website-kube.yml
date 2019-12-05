@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: website-service
-        image: 96637/website:0.$BUILD_NUMBER
+        image: satyendrasingh/website:0.$BUILD_NUMBER
         ports:
         - containerPort: 8001
 
