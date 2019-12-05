@@ -28,7 +28,7 @@ pipeline {
 		}
 		stage ("Tagging-docker-images") {
 			steps {
-				sh "docker tag search:${env.BUILD_ID} 96637/search:0.${env.BUILD_ID}"
+				sh "docker tag search:0.${env.BUILD_ID} 96637/search:0.${env.BUILD_ID}"
 				sh "docker tag website:0.${env.BUILD_ID} 96637/website:0.${env.BUILD_ID}"
 			}
 		}
