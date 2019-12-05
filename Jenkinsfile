@@ -22,13 +22,13 @@ pipeline {
 		}
 		stage ("Docker-Build-Services") {
 			steps {
-				sh "docker build -t search:0.1 search/"
-				sh "docker build -t website:0.1 website/"
+				sh "docker build -t search:0.${env.BUILD_ID} search/"
+				sh "docker build -t website:0.${env.BUILD_ID} website/"
 			}
 		}
 		stage ("Tagging-docker-images") {
 			steps {
-				sh "docker tag search:0.1 96637/search:0.${env.BUILD_ID}"
+				sh "docker tag search:${env.BUILD_ID} 96637/search:0.${env.BUILD_ID}"
 				sh "docker tag website:0.${env.BUILD_ID} 96637/website:0.${env.BUILD_ID}"
 			}
 		}
