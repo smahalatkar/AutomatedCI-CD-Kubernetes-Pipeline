@@ -30,6 +30,6 @@ spec:
     spec:
       containers:
       - name: book-service
-        image: 96637/book:0.$BUILD_NUMBER
+        image: satyendrasingh/book:0.$BUILD_NUMBER
         ports:
         - containerPort: 8060
