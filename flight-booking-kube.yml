@@ -10,7 +10,7 @@ spec:
   - protocol: TCP
     targetPort: 8090
     port: 8090
-    nodePort: 30810
+    nodePort: 31810
 
 ---
 
@@ -34,7 +34,7 @@ spec:
       - name: search-service
         image: 96637/search:0.$BUILD_NUMBER
         ports:
-        - containerPort: 8090
+        - containerPort: 8095
 
 ---
 
@@ -50,7 +50,7 @@ spec:
   - protocol: TCP
     targetPort: 8001
     port: 8001
-    nodePort: 30801
+    nodePort: 31801
 
 ---
 
@@ -74,4 +74,4 @@ spec:
       - name: website-service
         image: 96637/website:0.$BUILD_NUMBER
         ports:
-        - containerPort: 8001
+        - containerPort: 8011
